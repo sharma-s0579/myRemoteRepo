@@ -17,7 +17,18 @@ public class myAppTester {
 	  reverseMethod(n);
 	  System.out.println();
 
-	  // add a line below to call your myTestMethod from here  then remove the block comment symbols  
+	  //Calling isPalindrome method and printing the results 
+	  String str = "";
+	  Scanner input2 = new Scanner(System.in);
+	  System.out.println("Enter a string:");
+	  str = input2.nextLine();
+	  boolean palindrome = isPalindrome(str);
+		if(palindrome) {
+			System.out.println("Yes, it is a palindrome");
+		}
+		else {
+			System.out.println("Not a palindrome");
+		}
 
 	}
 	
@@ -33,15 +44,22 @@ public class myAppTester {
 	       }
 	   }
 
-
-	   /* 
-	       add your test method in this space then remove the block comment symbols
-	       public static void myTestMethod(...){
-
-            
-
-		   }
-	 
-	   */
+	//To check if a string is a palindrome
+	public static boolean isPalindrome(String str) {
+		
+		str = str.toLowerCase();
+		
+	 // if length is 0 or 1 then String is palindrome
+        if(str.length() == 0 || str.length() == 1)
+            return true; 
+        
+        if(str.charAt(0) == str.charAt(str.length()-1))
+        	
+        	return isPalindrome(str.substring(1, str.length()-1)); //recursive call
+       	 	
+        else
+        	return false;
+	
+}
 
 }
